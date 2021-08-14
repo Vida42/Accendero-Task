@@ -59,4 +59,10 @@ https://stackoverflow.com/questions/52425711/how-to-add-a-page-view-count-for-dj
 
 https://docs.djangoproject.com/en/3.2/topics/pagination/
 
+https://www.youtube.com/watch?v=PqXWWu2U_TI
+
+https://stackoverflow.com/questions/3090302/how-do-i-get-the-object-if-it-exists-or-none-if-it-does-not-exist-in-django
+
+https://stackoverflow.com/questions/22816704/django-get-a-random-object
+
 
