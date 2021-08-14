@@ -1,12 +1,77 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>{{ title }}</title>
-</head>
-<body>
-    <h1>
-        <p style="text-align:center" >{{ word }}</p>
-    </h1>
-</body>
-</html>
+{% extends 'base.html' %}
+
+{% block main %}
+    {% for post in post_list %}
+        <article class="post post-{{ post.pk }}">
+            <h1 class="entry-title">
+                <a href="{{ post.get_absolute_url }}">{{ post.title }}</a>
+            </h1>
+            <div class="entry-meta">
+                <span class="post-date">
+                    <a href="#">
+                        <time class="entry-date" datetime="{{ post.created_time }}">
+                            {{ post.created_time }}
+                        </time>
+                    </a>
+                </span>
+                <span class="post-author"><a href="#">{{ post.author }}</a></span>
+            </div>
+            <div class="entry-content clearfix">
+                <p>{{ post.summary }}</p>
+            </div>
+        </article>
+    {% empty %}
+        <div class="no-post"> NO ARTICLE FOR NOW ! </div>
+    {% endfor %}
+
+    <div class="pagination-simple">
+        <a href="#">Previous</a>
+        <span class="current">2 / 10</span>
+        <a href="#">Next</a>
+    </div>
+{% endblock main %}
+
+{% block recent_post %}
+<div class="widget widget-recent-posts">
+    <h3 class="widget-title">Recent Post</h3>
+    <ul>
+        {% for post in post_list|slice:":10" %}
+        <li>
+            <a href="#">{{ post.title }}</a>
+        </li>
+        {% empty %}
+            No post for now!
+        {% endfor %}
+    </ul>
+</div>
+{% endblock recent_post %}
+
+{% block time %}
+<div class="widget widget-archives">
+    <h3 class="widget-title">Time</h3>
+    <ul>
+        {% for post in post_list %}
+          <li>
+            <a href="#">{{ post.created_time }}</a>
+          </li>
+        {% empty %}
+          No data for now!
+        {% endfor %}
+    </ul>
+</div>
+{% endblock time %}
+
+{% block tags %}
+<div class="widget widget-tag-cloud">
+  <h3 class="widget-title">Tags</h3>
+  <ul>
+    {% for tag in tag_list %}
+      <li>
+        <a href="#">{{ tag.name }}</a>
+      </li>
+    {% empty %}
+      No tag for now!
+    {% endfor %}
+  </ul>
+</div>
+{% endblock tags %}

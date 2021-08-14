@@ -1,0 +1,68 @@
+{% load static %}
+<!--<!DOCTYPE html>-->
+<html>
+<head>
+    <title>My Blog</title>
+
+    <!-- meta -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- css -->
+    <link rel="stylesheet" href="{% static 'myblog/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'myblog/css/pace.css' %}">
+    <link rel="stylesheet" href="{% static 'myblog/css/custom.css' %}">
+    <link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <link href="//cdn.bootcss.com/highlight.js/9.12.0/styles/github.min.css" rel="stylesheet">
+</head>
+
+<body>
+<div class="container">
+    <header id="site-header">
+        <div class="row">
+            <div class="col-md-4 col-sm-5 col-xs-8">
+                <div class="logo">
+                    <h1><a href="{% url 'myblog:home' %}"><b>My Blog</b></a></h1>
+                </div>
+            </div>
+            <div class="col-md-8 col-sm-7 col-xs-4">
+                <nav class="main-nav" role="navigation">
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                        <ul class="nav navbar-nav navbar-right">
+                            <li class="cl-effect-11"><a href="{% url 'myblog:home' %}" data-hover="HOME">HOME</a></li>
+                            <li class="cl-effect-11"><a href="{% url 'myblog:about' %}" data-hover="ABOUT">ABOUT</a></li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </header>
+</div>
+
+<div class="content-body">
+    <div class="container">
+        <div class="row">
+            <main class="col-md-8">
+                {% block main %}
+                {% endblock main %}
+            </main>
+            <aside class="col-md-4">
+                {% block recent_post %}
+                {% endblock recent_post %}
+                {% block time %}
+                {% endblock time %}
+                {% block tags %}
+                {% endblock tags %}
+            </aside>
+        </div>
+    </div>
+</div>
+
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+<script>
+    hljs.configure({languages: []});
+    hljs.initHighlightingOnLoad();
+</script>
+
+</body>
+</html>
