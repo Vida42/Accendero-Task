@@ -33,11 +33,11 @@
 
 {% block recent_post %}
 <div class="widget widget-recent-posts">
-    <h3 class="widget-title">Recent Post</h3>
+    <h3 class="widget-title">Recent Posts</h3>
     <ul>
         {% for post in post_list|slice:":10" %}
         <li>
-            <a href="#">{{ post.title }}</a>
+            <a href="{{ post.get_absolute_url }}">{{ post.title }}</a>
         </li>
         {% empty %}
             No post for now!
@@ -48,11 +48,11 @@
 
 {% block time %}
 <div class="widget widget-archives">
-    <h3 class="widget-title">Time</h3>
+    <h3 class="widget-title">Archives</h3>
     <ul>
-        {% for post in post_list %}
+        {% for date in date_list %}
           <li>
-            <a href="#">{{ post.created_time }}</a>
+            <a href="{% url 'myblog:archive' date.year date.month %}"> {{ date.month }}-{{ date.year }} </a>
           </li>
         {% empty %}
           No data for now!
@@ -67,7 +67,7 @@
   <ul>
     {% for tag in tag_list %}
       <li>
-        <a href="#">{{ tag.name }}</a>
+        <a href="{% url 'myblog:tag' tag.pk %}">{{ tag.name }}</a>
       </li>
     {% empty %}
       No tag for now!
