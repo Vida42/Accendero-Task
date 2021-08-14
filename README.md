@@ -57,4 +57,6 @@ https://stackoverflow.com/questions/4668619/how-do-i-filter-query-objects-by-dat
 
 https://stackoverflow.com/questions/52425711/how-to-add-a-page-view-count-for-django-detail-view
 
+https://docs.djangoproject.com/en/3.2/topics/pagination/
+
 

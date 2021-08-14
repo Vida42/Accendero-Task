@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 
 {% block main %}
-    {% for post in post_list %}
+    {% for post in page_obj %}
         <article class="post post-{{ post.pk }}">
             <h1 class="entry-title">
                 <a href="{{ post.get_absolute_url }}">{{ post.title }}</a>
@@ -25,10 +25,22 @@
         <div class="no-post"> NO ARTICLE FOR NOW ! </div>
     {% endfor %}
 
-    <div class="pagination-simple">
-        <a href="#">Previous</a>
-        <span class="current">2 / 10</span>
-        <a href="#">Next</a>
+    <div class="pagination">
+        <span class="step-links">
+            {% if page_obj.has_previous %}
+                <a href="?page=1">&laquo; first</a>
+                <a href="?page={{ page_obj.previous_page_number }}">previous</a>
+            {% endif %}
+
+            <span class="current">
+                Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+            </span>
+
+            {% if page_obj.has_next %}
+                <a href="?page={{ page_obj.next_page_number }}">next</a>
+                <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
+            {% endif %}
+        </span>
     </div>
 {% endblock main %}
 
