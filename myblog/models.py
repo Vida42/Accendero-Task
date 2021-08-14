@@ -20,6 +20,7 @@ class Post(models.Model):
     created_time = models.DateTimeField(default=timezone.now)
     modified_time = models.DateTimeField()
     tags = models.ManyToManyField(Tag, blank=True)
+    blog_views = models.PositiveIntegerField(default=0, editable=False)
 
     class Meta:
         ordering = ['-created_time']

@@ -19,6 +19,8 @@ def home(request):
 
 def detail(request, pk):
     post = get_object_or_404(Post, pk=pk)
+    post.blog_views = post.blog_views+1
+    post.save()
     post.body = markdown.markdown(post.body,
                                   extensions=[
                                       'markdown.extensions.extra',
