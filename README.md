@@ -9,7 +9,7 @@ Build a personal blog, it allows user to create blog with Markdown. Every post h
 
 See home page showed below.
 
-![Home Page](https://github.com/Vida42/Accendero-Task/tree/main/res/home.png)
+![Home Page](https://github.com/Vida42/Accendero-Task/blob/main/res/home.png)
 
 ## TESTING
 
@@ -46,7 +46,7 @@ We use [coverage](https://coverage.readthedocs.io/en/coverage-5.0.3/index.html) 
 
 Report looks like:
 
-![coverage](https://github.com/Vida42/Accendero-Task/tree/main/res/coverage.png)
+![coverage](https://github.com/Vida42/Accendero-Task/blob/main/res/coverage.png)
 
 
 ## RUN
