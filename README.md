@@ -3,27 +3,87 @@
 
 ## TASK
 
-Using languages of your choice, build a full-stack web application, demonstrating an application that can have persistent state of some sort and allow a change in data.
+> Using languages of your choice, build a full-stack web application, demonstrating an application that can have persistent state of some sort and allow a change in data.
 
+Build a personal blog, it allows user to create blog with Markdown. Every post has title, author, summary, body, created_time, modified_time and tags.
+
+See home page showed below.
+
+![Home Page](https://github.com/Vida42/Accendero-Task/tree/main/res/home.png)
 
 ## TESTING
 
-You must demonstrate proper test cases for your code. 
+> You must demonstrate proper test cases for your code. Please provide examples of both unit and integration testing.
 
-Please provide examples of both unit and integration testing.
+### Unit test
+
+All unit tests are done inside `./myblog/tests`
+
+For example:
+
+```python
+# myblog/tests/test_views/AboutViewTestCase
+
+class AboutViewTestCase(DummyTestCase):
+    def setUp(self):
+        super().setUp()
+        self.url1 = reverse("myblog:about")
+
+    def test_about(self):
+        resp = self.client.get(self.url1)
+        self.assertEqual(resp.status_code, 200)
+        expected = "This is a blog application building with Django."
+        self.assertContains(resp, expected)
+```
+
+### Integration Test
+
+We use [coverage](https://coverage.readthedocs.io/en/coverage-5.0.3/index.html) as the tool to do integration test. To use it, go to the root folder first, then:
+
+- Run `coverage run manage.py test myblog/tests` to do the coverage test.
+
+- Run `coverage html` to generate report
+
+Report looks like:
+
+![coverage](https://github.com/Vida42/Accendero-Task/tree/main/res/coverage.png)
 
 
 ## RUN
 
-- First, users need to install Python 3.9.1 in their computers.
+- First, users need to install `Python 3.9.1` in their computers.
 
-- Then install required packages. You can simply install these packages saved in `requirements.txt`, run `pip install -r requirements.txt` in your command prompt.
+- Then install required packages. You can simply install these packages saved in `requirements.txt`. Go to project root folder(where manage.py locates), run `pip install -r requirements.txt` in your command prompt.
 
-- To run this client, run `python manage.py runserver`
+- Run `python manage.py makemigrations` to create migrations for any change.
 
+- Run `python manage.py migrate` to apply those changes to the database.
+
+- To run this client, run `python manage.py runserver`.
+
+### Fill in Posts
+
+You have two ways to inspect what it looks like with posts filled in:
+
+1. Creating an admin user
+
+> see details [here](https://docs.djangoproject.com/en/3.2/intro/tutorial02/#creating-an-admin-user)
+
+```python
+python manage.py createsuperuser
+```
+
+2. Go to root folder first, then run:
+
+```python
+python fakerfile.py
+```
+
+This command will generate 10 posts with author name `faker`.
+
+Now you can run `python manage.py runserver` again to see the blog.
 
 ## REFERENCE
-
 
 https://docs.djangoproject.com/en/3.2/ref/contrib/admin/
 

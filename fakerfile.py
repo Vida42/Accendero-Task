@@ -9,7 +9,7 @@ def createTags():
         User.objects.get(username='faker')
     except User.DoesNotExist:
         User.objects.create_superuser('faker', 'faker@test.com', 'faker')
-        possible_tags = ['Django', 'Python', 'Faker', 'Numpy', 'SQL', 'JS', 'Markdown', 'CSS', 'HTML', 'OS']
+        possible_tags = ['Django', 'Python', 'Faker', 'Numpy', 'SQL', 'JS', 'Go', 'CSS', 'HTML', 'OS']
         for tag in possible_tags:
             Tag.objects.create(name=tag)
 

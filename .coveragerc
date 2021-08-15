@@ -1,0 +1,8 @@
+[run]
+omit =
+   manage.py
+   fakerfile.py
+   myproj/settings.py
+   myproj/wsgi.py
+   venv/*
+   */migrations/*
