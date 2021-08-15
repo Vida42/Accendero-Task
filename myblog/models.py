@@ -13,6 +13,7 @@ class Tag(models.Model):
 
 
 class Post(models.Model):
+    objects = None
     title = models.CharField(max_length=50)
     author = models.ForeignKey(User, on_delete=models.CASCADE)
     summary = models.CharField(max_length=200, blank=True)

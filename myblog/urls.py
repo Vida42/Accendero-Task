@@ -8,5 +8,5 @@ urlpatterns = [
     path('posts/<int:pk>/', views.detail, name='detail'),
     path('about', views.about, name='about'),
     path('archives/<int:year>/<int:month>/', views.archive, name='archive'),
-    path('tags/<str:tag_pk>/', views.tag, name='tag'),
+    path('tags/<int:tag_pk>/', views.tag, name='tag'),
 ]

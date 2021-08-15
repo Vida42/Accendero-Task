@@ -65,4 +65,15 @@ https://stackoverflow.com/questions/3090302/how-do-i-get-the-object-if-it-exists
 
 https://stackoverflow.com/questions/22816704/django-get-a-random-object
 
+https://docs.djangoproject.com/en/3.2/topics/testing/overview/
+
+https://realpython.com/testing-in-django-part-1-best-practices-and-examples/
+
+https://docs.djangoproject.com/en/3.2/topics/testing/advanced/#integration-with-coverage-py
+
+https://stackoverflow.com/questions/17536916/python-django-how-to-assert-that-unit-test-result-contains-a-certain-string
+
+https://stackoverflow.com/questions/56048573/how-do-i-verify-in-a-django-unit-test-that-my-context-contains-a-form-object
+
+https://stackoverflow.com/questions/4377861/reload-django-object-from-database
 
